@@ -76,13 +76,13 @@ const Signup: React.FC = () => {
                   <div className="space-y-2">
                     <Input
                       id="regNumber"
-                      placeholder="Registration Number (e.g., RA2211028010236)"
+                      placeholder="Registration Number (e.g., RA2211028010)"
                       value={regNumber}
                       onChange={(e) => setRegNumber(e.target.value)}
                       required
                       className="border-studious-lightblue focus:border-studious-blue"
                     />
-                    <p className="text-xs text-gray-500">Format: RA followed by 16 digits</p>
+                    <p className="text-xs text-gray-500">Format: RA followed by 13 digits</p>
                   </div>
                   <div className="space-y-2">
                     <Input

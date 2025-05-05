@@ -46,8 +46,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const login = (credentials: { identifier: string; password: string }) => {
     setIsLoading(true);
     
-    // Simple validation check - updated to use regex that matches RA + 16 digits
-    const isRegNumber = /^RA\d{16}$/.test(credentials.identifier);
+    // Simple validation check - updated to use regex that matches RA + 13 digits
+    const isRegNumber = /^RA\d{13}$/.test(credentials.identifier);
     
     setTimeout(() => {
       let foundUser;
@@ -99,10 +99,10 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         return;
       }
       
-      // Validate registration number format for students - updated to use regex pattern
+      // Validate registration number format for students - updated to use regex pattern for 13 digits
       if (userData.role === 'student') {
-        if (!userData.regNumber || !/^RA\d{16}$/.test(userData.regNumber)) {
-          toast.error('Invalid registration number format. It should start with RA followed by 16 digits');
+        if (!userData.regNumber || !/^RA\d{13}$/.test(userData.regNumber)) {
+          toast.error('Invalid registration number format. It should start with RA followed by 13 digits');
           setIsLoading(false);
           return;
         }
