@@ -76,7 +76,7 @@ const Signup: React.FC = () => {
                   <div className="space-y-2">
                     <Input
                       id="regNumber"
-                      placeholder="Registration Number (RA2211028010236)"
+                      placeholder="Registration Number (e.g., RA2211028010236)"
                       value={regNumber}
                       onChange={(e) => setRegNumber(e.target.value)}
                       required
