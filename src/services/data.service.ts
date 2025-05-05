@@ -163,3 +163,20 @@ export const getMaterialsByType = (subjectId: string, type: Material['type']): M
   
   return subject.materials.filter(material => material.type === type);
 };
+
+// Function to add a new material to a subject
+export const addMaterial = (subjectId: string, material: Omit<Material, 'id'>): Material | null => {
+  const subject = getSubjectById(subjectId);
+  if (!subject) return null;
+  
+  // Generate a new ID (in a real app, this would be handled by the database)
+  const newId = `${Date.now()}`;
+  
+  const newMaterial: Material = {
+    id: newId,
+    ...material
+  };
+  
+  subject.materials.push(newMaterial);
+  return newMaterial;
+};
